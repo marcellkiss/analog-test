@@ -1,7 +1,7 @@
 /// <reference types="vitest" />
 
-import { defineConfig } from 'vite';
 import analog from '@analogjs/platform';
+import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -12,7 +12,17 @@ export default defineConfig(({ mode }) => ({
   resolve: {
     mainFields: ['module'],
   },
-  plugins: [analog()],
+  plugins: [
+    analog({
+      // nitro: {
+      //   preset: 'node-server',
+      // },
+      // ssr: false,
+      prerender: {
+        routes: async () => ['/', '/test', '/x'],
+      },
+    }),
+  ],
   test: {
     globals: true,
     environment: 'jsdom',
@@ -23,4 +33,17 @@ export default defineConfig(({ mode }) => ({
   define: {
     'import.meta.vitest': mode !== 'production',
   },
+  // prerender: {
+  //   routes: async () => {
+  //     return [
+  //       ...
+  //       '/api/rss.xml',
+  //       ...
+  //       .
+  //     ];
+  //   },
+  //   sitemap: {
+  //     host: 'https://analog-blog.netlify.app',
+  //   },
+  // },
 }));
