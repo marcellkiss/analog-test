@@ -19,7 +19,7 @@ export default defineConfig(({ mode }) => ({
       // },
       // ssr: false,
       prerender: {
-        routes: async () => ['/', '/test', '/x'],
+        // routes: async () => ['/', '/test', '/x'],
       },
     }),
   ],
