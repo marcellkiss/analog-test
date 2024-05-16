@@ -8,6 +8,6 @@ export const load = async ({
   event, // full request event
 }: PageServerLoad) => {
   return {
-    loaded: false,
+    loaded: true,
   };
 };

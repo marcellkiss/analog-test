@@ -1,11 +1,11 @@
 import { beforeEach, describe, expect, it } from 'vitest';
-import TestPage from './test.page';
+import HomeComponent from './home.page';
 
 describe('TestPage', () => {
-  let testPage: TestPage;
+  let testPage: HomeComponent;
 
   beforeEach(() => {
-    testPage = new TestPage();
+    testPage = new HomeComponent();
   });
 
   it('should create an instance', () => {

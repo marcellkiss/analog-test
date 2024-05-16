@@ -1,8 +1,8 @@
+// import { injectLoad } from '@analogjs/router';
 import { injectLoad } from '@analogjs/router';
 import { Component } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-
-import { load } from './test.server'; // not included in client build
+import { load } from './test.server';
 
 @Component({
   standalone: true,
@@ -13,5 +13,6 @@ import { load } from './test.server'; // not included in client build
   `,
 })
 export default class BlogComponent {
+  // data = signal({ loaded: false });
   data = toSignal(injectLoad<typeof load>(), { requireSync: true });
 }
